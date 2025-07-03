@@ -15,8 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),   # You will create this file in your accounts app
+    path('bookings/', include('bookings.urls')),   # You will create this file in your bookings app
+    path('', include('bookings.urls')),            # Set bookings as the landing page for now
 ]
