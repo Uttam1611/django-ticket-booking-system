@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book a Slot</title>
+</head>
+<body>
+    <h1>Book a Slot</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Slot selection form fields go here -->
+        <button type="submit">Book</button>
+    </form>
+</body>
+</html>
