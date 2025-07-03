@@ -87,11 +87,11 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ticketdb',
-        'USER': 'postgres',
-        'PASSWORD': 'Ut12345',
+        'NAME': 'Add_your_DBname',
+        'USER': 'Add_your_DBusername',
+        'PASSWORD': 'Add_your_DBpass',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': 'Add_your_DBportno',
     }
 }
 
