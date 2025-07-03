@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Book a Slot</title>
-</head>
-<body>
-    <h1>Book a Slot</h1>
-    <form method="post">
-        {% csrf_token %}
-        <!-- Slot selection form fields go here -->
-        <button type="submit">Book</button>
-    </form>
-</body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h2 class="mb-4 text-center">Book a Slot</h2>
+          <form method="post" class="card card-body shadow">
+            {% csrf_token %} {% if form.errors %}
+            <div class="alert alert-danger">
+              {% for field in form %} {% for error in field.errors %}
+              <div>{{ error }}</div>
+              {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+              <div>{{ error }}</div>
+              {% endfor %}
+            </div>
+            {% endif %}
+            <div class="mb-3">
+              <label for="id_slot" class="form-label">Select Slot</label>
+              <select name="slot" id="id_slot" class="form-select" required>
+                {% for slot in slots %}
+                <option value="{{ slot.id }}">
+                  {{ slot.start_time }} - {{ slot.end_time }}
+                </option>
+                {% endfor %}
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Book</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
